@@ -1,0 +1,215 @@
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "cours"[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (109.1ms)[0m  [1m[35mCREATE TABLE "cours" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "description" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "lecons"[0m
+  [1m[35m (76.6ms)[0m  [1m[35mCREATE TABLE "lecons" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "body" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (76.8ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (89.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20180201143753)[0m
+  [1m[35m (68.1ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20180201143605);
+
+[0m
+  [1m[35m (78.9ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.3ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (1.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "test"], ["created_at", "2018-02-01 15:27:52.849471"], ["updated_at", "2018-02-01 15:27:52.849471"]]
+  [1m[35m (68.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "cours"[0m
+  [1m[35m (0.2ms)[0m  [1m[34mSELECT sqlite_version(*)[0m
+  [1m[35m (134.3ms)[0m  [1m[35mCREATE TABLE "cours" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "description" text, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (0.2ms)[0m  [1m[35mDROP TABLE IF EXISTS "lecons"[0m
+  [1m[35m (88.8ms)[0m  [1m[35mCREATE TABLE "lecons" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "title" varchar, "body" text, "cour_id" integer, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[35m (76.6ms)[0m  [1m[35mCREATE  INDEX "index_lecons_on_cour_id" ON "lecons" ("cour_id")[0m
+  [1m[35m (98.3ms)[0m  [1m[35mCREATE TABLE "schema_migrations" ("version" varchar NOT NULL PRIMARY KEY)[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (59.7ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES (20180201143753)[0m
+  [1m[35m (55.3ms)[0m  [1m[32mINSERT INTO "schema_migrations" (version) VALUES
+(20180201143605);
+
+[0m
+  [1m[35m (108.4ms)[0m  [1m[35mCREATE TABLE "ar_internal_metadata" ("key" varchar NOT NULL PRIMARY KEY, "value" varchar, "created_at" datetime NOT NULL, "updated_at" datetime NOT NULL)[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.5ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35mSQL (0.5ms)[0m  [1m[32mINSERT INTO "ar_internal_metadata" ("key", "value", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["key", "environment"], ["value", "test"], ["created_at", "2018-02-01 16:59:34.818050"], ["updated_at", "2018-02-01 16:59:34.818050"]]
+  [1m[35m (82.9ms)[0m  [1m[36mcommit transaction[0m
+  [1m[36mActiveRecord::InternalMetadata Load (0.2ms)[0m  [1m[34mSELECT  "ar_internal_metadata".* FROM "ar_internal_metadata" WHERE "ar_internal_metadata"."key" = ? LIMIT ?[0m  [["key", "environment"], ["LIMIT", 1]]
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[35m (2.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.4ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (2.6ms)[0m  [1m[31mDELETE FROM "cours"[0m
+  [1m[36mFixture Insert (0.5ms)[0m  [1m[32mINSERT INTO "cours" ("title", "description", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2018-02-01 16:59:35.051453', '2018-02-01 16:59:35.051453', 980190962)[0m
+  [1m[36mFixture Insert (0.2ms)[0m  [1m[32mINSERT INTO "cours" ("title", "description", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2018-02-01 16:59:35.051453', '2018-02-01 16:59:35.051453', 298486374)[0m
+  [1m[36mFixture Delete (0.5ms)[0m  [1m[31mDELETE FROM "lecons"[0m
+  [1m[36mFixture Insert (0.2ms)[0m  [1m[32mINSERT INTO "lecons" ("title", "body", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2018-02-01 16:59:35.064040', '2018-02-01 16:59:35.064040', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "lecons" ("title", "body", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2018-02-01 16:59:35.064040', '2018-02-01 16:59:35.064040', 298486374)[0m
+  [1m[35m (83.5ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------------
+CourTest: test_body_should_be_valid
+-----------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (2.7ms)[0m  [1m[31mDELETE FROM "cours"[0m
+  [1m[36mFixture Insert (0.2ms)[0m  [1m[32mINSERT INTO "cours" ("title", "description", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2018-02-01 17:03:32.725625', '2018-02-01 17:03:32.725625', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "cours" ("title", "description", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2018-02-01 17:03:32.725625', '2018-02-01 17:03:32.725625', 298486374)[0m
+  [1m[36mFixture Delete (0.2ms)[0m  [1m[31mDELETE FROM "lecons"[0m
+  [1m[36mFixture Insert (0.2ms)[0m  [1m[32mINSERT INTO "lecons" ("title", "body", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2018-02-01 17:03:32.732635', '2018-02-01 17:03:32.732635', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "lecons" ("title", "body", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2018-02-01 17:03:32.732635', '2018-02-01 17:03:32.732635', 298486374)[0m
+  [1m[35m (126.8ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------------------
+LeconTest: test_description_should_be_valid
+-------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (1.0ms)[0m  [1m[31mDELETE FROM "cours"[0m
+  [1m[36mFixture Insert (0.3ms)[0m  [1m[32mINSERT INTO "cours" ("title", "description", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2018-02-01 17:05:15.303746', '2018-02-01 17:05:15.303746', 980190962)[0m
+  [1m[36mFixture Insert (0.2ms)[0m  [1m[32mINSERT INTO "cours" ("title", "description", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2018-02-01 17:05:15.303746', '2018-02-01 17:05:15.303746', 298486374)[0m
+  [1m[36mFixture Delete (0.2ms)[0m  [1m[31mDELETE FROM "lecons"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "lecons" ("title", "body", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2018-02-01 17:05:15.309102', '2018-02-01 17:05:15.309102', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "lecons" ("title", "body", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2018-02-01 17:05:15.309102', '2018-02-01 17:05:15.309102', 298486374)[0m
+  [1m[35m (121.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+------------------------------
+CourTest: test_should_be_valid
+------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (1.4ms)[0m  [1m[31mDELETE FROM "cours"[0m
+  [1m[36mFixture Insert (0.3ms)[0m  [1m[32mINSERT INTO "cours" ("title", "description", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2018-02-01 17:09:42.506459', '2018-02-01 17:09:42.506459', 980190962)[0m
+  [1m[36mFixture Insert (0.2ms)[0m  [1m[32mINSERT INTO "cours" ("title", "description", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2018-02-01 17:09:42.506459', '2018-02-01 17:09:42.506459', 298486374)[0m
+  [1m[36mFixture Delete (1.6ms)[0m  [1m[31mDELETE FROM "lecons"[0m
+  [1m[36mFixture Insert (0.2ms)[0m  [1m[32mINSERT INTO "lecons" ("title", "body", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2018-02-01 17:09:42.512322', '2018-02-01 17:09:42.512322', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "lecons" ("title", "body", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2018-02-01 17:09:42.512322', '2018-02-01 17:09:42.512322', 298486374)[0m
+  [1m[35m (136.0ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+------------------------------
+CourTest: test_should_be_valid
+------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (1.6ms)[0m  [1m[31mDELETE FROM "cours"[0m
+  [1m[36mFixture Insert (0.3ms)[0m  [1m[32mINSERT INTO "cours" ("title", "description", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2018-02-01 17:11:04.698364', '2018-02-01 17:11:04.698364', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "cours" ("title", "description", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2018-02-01 17:11:04.698364', '2018-02-01 17:11:04.698364', 298486374)[0m
+  [1m[36mFixture Delete (0.2ms)[0m  [1m[31mDELETE FROM "lecons"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "lecons" ("title", "body", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2018-02-01 17:11:04.704141', '2018-02-01 17:11:04.704141', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "lecons" ("title", "body", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2018-02-01 17:11:04.704141', '2018-02-01 17:11:04.704141', 298486374)[0m
+  [1m[35m (123.2ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------------
+LeconTest: test_title_should_be_valid
+-------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+------------------------------------
+LeconTest: test_body_should_be_valid
+------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------
+LeconTest: test_should_be_valid
+-------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (1.9ms)[0m  [1m[31mDELETE FROM "cours"[0m
+  [1m[36mFixture Insert (0.3ms)[0m  [1m[32mINSERT INTO "cours" ("title", "description", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2018-02-01 17:16:03.884666', '2018-02-01 17:16:03.884666', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "cours" ("title", "description", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2018-02-01 17:16:03.884666', '2018-02-01 17:16:03.884666', 298486374)[0m
+  [1m[36mFixture Delete (0.2ms)[0m  [1m[31mDELETE FROM "lecons"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "lecons" ("title", "body", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2018-02-01 17:16:03.890595', '2018-02-01 17:16:03.890595', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "lecons" ("title", "body", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2018-02-01 17:16:03.890595', '2018-02-01 17:16:03.890595', 298486374)[0m
+  [1m[35m (105.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+------------------------------------
+LeconTest: test_body_should_be_valid
+------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------
+LeconTest: test_should_be_valid
+-------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.3ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys[0m
+  [1m[35m (0.2ms)[0m  [1m[35mPRAGMA foreign_keys = OFF[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+  [1m[36mFixture Delete (0.4ms)[0m  [1m[31mDELETE FROM "cours"[0m
+  [1m[36mFixture Insert (0.2ms)[0m  [1m[32mINSERT INTO "cours" ("title", "description", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2018-02-01 17:16:52.876521', '2018-02-01 17:16:52.876521', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "cours" ("title", "description", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2018-02-01 17:16:52.876521', '2018-02-01 17:16:52.876521', 298486374)[0m
+  [1m[36mFixture Delete (0.2ms)[0m  [1m[31mDELETE FROM "lecons"[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "lecons" ("title", "body", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2018-02-01 17:16:52.880753', '2018-02-01 17:16:52.880753', 980190962)[0m
+  [1m[36mFixture Insert (0.1ms)[0m  [1m[32mINSERT INTO "lecons" ("title", "body", "created_at", "updated_at", "id") VALUES ('MyString', 'MyText', '2018-02-01 17:16:52.880753', '2018-02-01 17:16:52.880753', 298486374)[0m
+  [1m[35m (96.1ms)[0m  [1m[36mcommit transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[35mPRAGMA foreign_keys = 1[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+------------------------------
+CourTest: test_should_be_valid
+------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+------------------------------------------
+CourTest: test_description_should_be_valid
+------------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+------------------------------------
+CourTest: test_title_should_be_valid
+------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+-------------------------------
+LeconTest: test_should_be_valid
+-------------------------------
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "cours" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "monCour"], ["description", "Description de mon cour"], ["created_at", "2018-02-01 17:16:53.004638"], ["updated_at", "2018-02-01 17:16:53.004638"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (2.3ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+------------------------------------
+LeconTest: test_body_should_be_valid
+------------------------------------
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (0.7ms)[0m  [1m[32mINSERT INTO "cours" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "monCour"], ["description", "Description de mon cour"], ["created_at", "2018-02-01 17:16:53.036855"], ["updated_at", "2018-02-01 17:16:53.036855"]]
+  [1m[35m (0.1ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (0.4ms)[0m  [1m[31mrollback transaction[0m
+  [1m[35m (0.1ms)[0m  [1m[36mbegin transaction[0m
+-----------------------------
+LeconTest: test_title_present
+-----------------------------
+  [1m[35m (0.1ms)[0m  [1m[35mSAVEPOINT active_record_1[0m
+  [1m[35mSQL (1.5ms)[0m  [1m[32mINSERT INTO "cours" ("title", "description", "created_at", "updated_at") VALUES (?, ?, ?, ?)[0m  [["title", "monCour"], ["description", "Description de mon cour"], ["created_at", "2018-02-01 17:16:53.043569"], ["updated_at", "2018-02-01 17:16:53.043569"]]
+  [1m[35m (0.4ms)[0m  [1m[35mRELEASE SAVEPOINT active_record_1[0m
+  [1m[35m (1.0ms)[0m  [1m[31mrollback transaction[0m
